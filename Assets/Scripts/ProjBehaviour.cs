@@ -3,7 +3,7 @@
 public class ProjBehaviour : MonoBehaviour
 {
     public float Speed = 7f;
-    
+
     void Update()
     {
         transform.position += transform.up * Time.deltaTime * Speed;
@@ -12,7 +12,6 @@ public class ProjBehaviour : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         var enemy = collision.collider.GetComponent<EnemyBehaviour>();
-        // SoundManager.PlaySound("projHit");
         FindObjectOfType<AudioManager>().Play("projHitSound");
 
         if (enemy) 
@@ -20,6 +19,6 @@ public class ProjBehaviour : MonoBehaviour
             enemy.TakeHit(1);   
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

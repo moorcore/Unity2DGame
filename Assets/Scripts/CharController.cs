@@ -11,8 +11,6 @@ public class CharController : MonoBehaviour
     private float MaxHitpoints = 5;
     public HPBarBehaviour HPBar;
 
-    public Animator anim;
-
     private Rigidbody2D _rigidbody;
 
     private void Start()
@@ -49,7 +47,14 @@ public class CharController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
             FindObjectOfType<AudioManager>().Play("projSound");
-            Instantiate(ProjPrefab, LaunchOffset.position, transform.rotation);
+            // Instantiate(ProjPrefab, LaunchOffset.position, transform.rotation);
+
+            GameObject proj = ObjectPool.instance.GetPooledObject();
+            if (proj != null)
+            {
+                proj.transform.position = LaunchOffset.position;
+                proj.SetActive(true);
+            }
         }
 
         // if (Input.GetKeyDown(KeyCode.B)) 

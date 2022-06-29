@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    
     public float speed;
+    public float stopDistance = 0.1f;
 
     private Transform target;
 
@@ -14,9 +14,9 @@ public class EnemyFollow : MonoBehaviour
     
     void Update() 
     {   
-        if (Vector2.Distance(transform.position, target.position) > 3) {
+        if (Vector2.Distance(transform.position, target.position) > stopDistance) 
+        {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
-        
     }
 }
