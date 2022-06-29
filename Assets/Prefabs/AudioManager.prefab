@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3136150841202756353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3136150841202756355}
+  - component: {fileID: 3136150841202756354}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3136150841202756355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136150841202756353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3136150841202756354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136150841202756353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074d7e582ee20fb489303327badc6cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: charJump
+    clip: {fileID: 8300000, guid: af803c328cea21b47b420b3897a5af71, type: 3}
+    volume: 0.167
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: theme
+    clip: {fileID: 8300000, guid: eed73d1e49a050a43988473b05fd2c0d, type: 3}
+    volume: 0.159
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: enemyDeath
+    clip: {fileID: 8300000, guid: 13d6a5b4bf13c2a478cee094fb582ccf, type: 3}
+    volume: 0.095
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: projSound
+    clip: {fileID: 8300000, guid: d5472b9f505de7f4382f858886244f96, type: 3}
+    volume: 0.088
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: enemySight
+    clip: {fileID: 8300000, guid: 1c71eec2080873e49b730decf0e532f1, type: 3}
+    volume: 0.068
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: charTaunt
+    clip: {fileID: 8300000, guid: 33b8679474309c2478a35cb63b7b1d1e, type: 3}
+    volume: 0.166
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: projHitSound
+    clip: {fileID: 8300000, guid: e6a257eb0021c1744811eb94d3285eda, type: 3}
+    volume: 0.089
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
