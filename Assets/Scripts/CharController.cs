@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
@@ -6,10 +7,20 @@ public class CharController : MonoBehaviour
     public float JumpForce = 1;
     public ProjBehaviour ProjPrefab;
     public Transform LaunchOffset;
+    public Transform Spaceship;
 
     private float Hitpoints;
     private float MaxHitpoints = 5;
     public HPBarBehaviour HPBar;
+
+    public bool CanDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
+    [SerializeField]
+    private TrailRenderer trailRenderer;
 
     private Rigidbody2D _rigidbody;
 
@@ -22,32 +33,27 @@ public class CharController : MonoBehaviour
 
     private void Update()
     {
+/*        if (isDashing)
+        {
+            return;
+        }*/
+
         var horizontalMovement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(horizontalMovement, 0, 0) * Time.deltaTime * MovementSpeed;
 
         var verticalMovement = Input.GetAxis("Vertical");
         transform.position += new Vector3(0, verticalMovement, 0) * Time.deltaTime * MovementSpeed;
 
-        // if (!Mathf.Approximately(0, horizontalMovement)) 
-        // {
-        //     transform.rotation = horizontalMovement > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
-        // }
+        if (Input.GetButtonDown("Jump") && CanDash) 
+        {
+            StartCoroutine(Dash());
 
-        // if (!Mathf.Approximately(0, verticalMovement)) 
-        // {
-        //     transform.rotation = horizontalMovement > 0 ? Quaternion.Euler(180, 0, 0) : Quaternion.identity;
-        // }
-
-        // if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f) {
-        //     _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-
-        //     FindObjectOfType<AudioManager>().Play("charJump");
-        // }
+            FindObjectOfType<AudioManager>().Play("dash");
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
             FindObjectOfType<AudioManager>().Play("projSound");
-            // Instantiate(ProjPrefab, LaunchOffset.position, transform.rotation);
 
             GameObject proj = ObjectPool.instance.GetPooledObject();
             if (proj != null)
@@ -57,10 +63,10 @@ public class CharController : MonoBehaviour
             }
         }
 
-        // if (Input.GetKeyDown(KeyCode.B)) 
-        // {
-        //     FindObjectOfType<AudioManager>().Play("charTaunt");
-        // }
+        if (Input.GetKeyDown(KeyCode.B)) 
+        {
+            FindObjectOfType<AudioManager>().Play("charTaunt");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
@@ -89,5 +95,26 @@ public class CharController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("enemyDeath");
             Destroy(gameObject);
         }
-    }    
+    }
+    
+    private IEnumerator Dash()
+    {
+        CanDash = false;
+        isDashing = true;
+        Vector2 originalVelocity = _rigidbody.velocity;
+
+        Vector3 shipVector = Camera.main.WorldToScreenPoint(Spaceship.position);
+        shipVector = Input.mousePosition - shipVector;
+
+
+        _rigidbody.velocity = new Vector3(transform.localScale.x * dashingPower,
+            transform.localScale.y * dashingPower);
+        trailRenderer.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        trailRenderer.emitting = false;
+        _rigidbody.velocity = originalVelocity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        CanDash = true;
+    }
 }
