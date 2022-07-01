@@ -3,21 +3,20 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
-    public float MovementSpeed = 1;
-    public float JumpForce = 1;
+    public float movementSpeed = 6.0f;
     public ProjBehaviour ProjPrefab;
     public Transform LaunchOffset;
     public Transform Spaceship;
 
-    private float Hitpoints;
-    private float MaxHitpoints = 5;
-    public HPBarBehaviour HPBar;
+    private float hitpoints;
+    private float maxHitpoints = 5.0f;
+    // public HPBar HPBar;
 
     public bool CanDash = true;
     private bool isDashing;
-    private float dashingPower = 24f;
+    private float dashingPower = 24.0f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 1f;
+    private float dashingCooldown = 1.0f;
 
     [SerializeField]
     private TrailRenderer trailRenderer;
@@ -27,35 +26,34 @@ public class CharController : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        Hitpoints = MaxHitpoints;
+        hitpoints = maxHitpoints;
         // HPBar.SetHealth(Hitpoints, MaxHitpoints);
     }
 
     private void Update()
     {
-/*        if (isDashing)
-        {
-            return;
-        }*/
+        /*        if (isDashing)
+                {
+                    return;
+                }*/
 
         var horizontalMovement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(horizontalMovement, 0, 0) * Time.deltaTime * MovementSpeed;
+        transform.position += new Vector3(horizontalMovement, 0, 0) * Time.deltaTime * movementSpeed;
 
         var verticalMovement = Input.GetAxis("Vertical");
-        transform.position += new Vector3(0, verticalMovement, 0) * Time.deltaTime * MovementSpeed;
+        transform.position += new Vector3(0, verticalMovement, 0) * Time.deltaTime * movementSpeed;
 
-        if (Input.GetButtonDown("Jump") && CanDash) 
+        if (Input.GetButtonDown("Jump") && CanDash)
         {
             StartCoroutine(Dash());
-
             FindObjectOfType<AudioManager>().Play("dash");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             FindObjectOfType<AudioManager>().Play("projSound");
 
-            GameObject proj = ObjectPool.instance.GetPooledObject();
+            GameObject proj = ProjObjectPool.instance.GetPooledObject();
             if (proj != null)
             {
                 proj.transform.position = LaunchOffset.position;
@@ -63,17 +61,17 @@ public class CharController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.B)) 
+        if (Input.GetKeyDown(KeyCode.B))
         {
             FindObjectOfType<AudioManager>().Play("charTaunt");
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) 
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         var enemy = collision.collider.GetComponent<EnemyBehaviour>();
 
-        if (enemy) 
+        if (enemy)
         {
             PlayerTakeHit(1);
         }
@@ -81,38 +79,34 @@ public class CharController : MonoBehaviour
 
     private void PlayerTakeHit(float damage)
     {
-        Hitpoints -= damage;
+        hitpoints -= damage;
 
         // HPBar.SetHealth(Hitpoints, MaxHitpoints);
 
-        if (Hitpoints > 0) 
+        if (hitpoints > 0)
         {
-            FindObjectOfType<AudioManager>().Play("enemySight");
+            FindObjectOfType<AudioManager>().Play("shipdamaged");
         }
-        
-        if (Hitpoints <= 0) 
+
+        if (hitpoints <= 0)
         {
-            FindObjectOfType<AudioManager>().Play("enemyDeath");
+            FindObjectOfType<AudioManager>().Play("shipdestroyed");
             Destroy(gameObject);
         }
     }
-    
+
     private IEnumerator Dash()
     {
         CanDash = false;
         isDashing = true;
-        Vector2 originalVelocity = _rigidbody.velocity;
+        var originalMovespeed = movementSpeed;
 
-        Vector3 shipVector = Camera.main.WorldToScreenPoint(Spaceship.position);
-        shipVector = Input.mousePosition - shipVector;
-
-
-        _rigidbody.velocity = new Vector3(transform.localScale.x * dashingPower,
-            transform.localScale.y * dashingPower);
+        movementSpeed += dashingPower; 
         trailRenderer.emitting = true;
         yield return new WaitForSeconds(dashingTime);
+
         trailRenderer.emitting = false;
-        _rigidbody.velocity = originalVelocity;
+        movementSpeed = originalMovespeed;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         CanDash = true;

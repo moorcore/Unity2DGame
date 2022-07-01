@@ -25,7 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         
         if (Hitpoints <= 0) {
-            FindObjectOfType<AudioManager>().Play("enemyDeath");
+            FindObjectOfType<AudioManager>().Play("shipdestroyed");
             Destroy(gameObject);
         }
     }

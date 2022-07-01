@@ -105,7 +105,7 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
 --- !u!1001 &473387160619973064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,6 +183,11 @@ PrefabInstance:
       propertyPath: MovementSpeed
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4973167643022181059, guid: 4df81b8a87b904846882924f28821934,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4973167643022181061, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
       propertyPath: m_RootOrder
@@ -197,6 +202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973167643022181061, guid: 4df81b8a87b904846882924f28821934,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4973167643022181061, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
@@ -256,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 4973167643022181070, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
       propertyPath: m_Name
-      value: ShipPrefab
+      value: ShipPrefab Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4973167643022181070, guid: 4df81b8a87b904846882924f28821934,
         type: 3}

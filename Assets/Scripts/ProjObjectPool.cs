@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class ProjObjectPool : MonoBehaviour
 {
-    public static ObjectPool instance;
+    public static ProjObjectPool instance;
     public Transform LaunchOffset;
 
     private List<GameObject> pooledObjects = new List<GameObject>();

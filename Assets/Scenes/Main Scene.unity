@@ -884,8 +884,20 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
       propertyPath: m_Emitting
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 677662799
       objectReference: {fileID: 0}
     - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
       propertyPath: m_Parameters.alignment
@@ -905,6 +917,11 @@ PrefabInstance:
       propertyPath: Spaceship
       value: 
       objectReference: {fileID: 1492059835}
+    - target: {fileID: 4870065212754377483, guid: ec9e5a8bd1c1155448ff670e6a775736,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4870065212754377483, guid: ec9e5a8bd1c1155448ff670e6a775736,
         type: 3}
       propertyPath: trailRenderer

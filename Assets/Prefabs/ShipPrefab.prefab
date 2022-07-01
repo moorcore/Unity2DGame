@@ -99,12 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1e07caaae1bb44383a630494f8e8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
-  JumpForce: 6
+  movementSpeed: 6
   ProjPrefab: {fileID: -7473292874020761679, guid: 1446f299dee56384ab689ceb9896c5b8,
     type: 3}
   LaunchOffset: {fileID: 4973167643052515438}
-  HPBar: {fileID: 0}
+  Spaceship: {fileID: 0}
+  CanDash: 1
+  trailRenderer: {fileID: 0}
 --- !u!114 &8783911536416493966
 MonoBehaviour:
   m_ObjectHideFlags: 0

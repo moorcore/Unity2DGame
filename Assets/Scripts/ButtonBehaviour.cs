@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ButtonBehaviour : MonoBehaviour
 {
@@ -11,13 +9,13 @@ public class ButtonBehaviour : MonoBehaviour
     [SerializeField]
     private Texture2D cursorTexture;
 
-    public void OnHover() 
+    public void OnHover()
     {
         audioSource.PlayOneShot(hoverFX);
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
-    public void OnClick() 
+    public void OnClick()
     {
         audioSource.PlayOneShot(clickFX);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
