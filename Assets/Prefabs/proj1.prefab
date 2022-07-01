@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7473292874020761679}
   m_Layer: 0
   m_Name: proj1
-  m_TagString: Untagged
+  m_TagString: Projectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -529749621
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9539d0f878c5cde47b811cfe0e84f1f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  maxLifetime: 5

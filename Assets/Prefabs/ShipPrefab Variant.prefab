@@ -150,6 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4973167643022181057, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973167643022181057, guid: 4df81b8a87b904846882924f28821934,
+        type: 3}
       propertyPath: m_UseAutoMass
       value: 0
       objectReference: {fileID: 0}
@@ -171,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 4973167643022181058, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4973167643022181058, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
@@ -270,6 +275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4973167643022181070, guid: 4df81b8a87b904846882924f28821934,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973167643022181070, guid: 4df81b8a87b904846882924f28821934,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -312,6 +322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973167643052515439, guid: 4df81b8a87b904846882924f28821934,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8783911536416493966, guid: 4df81b8a87b904846882924f28821934,
         type: 3}

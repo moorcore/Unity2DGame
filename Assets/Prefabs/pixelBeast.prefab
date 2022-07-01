@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1184590376475362340}
   - component: {fileID: 3636930836483763152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pixelBeast
   m_TagString: Untagged
   m_Icon: {fileID: 0}

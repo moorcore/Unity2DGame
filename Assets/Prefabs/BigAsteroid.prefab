@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2280693991177404734}
   - component: {fileID: -1189342854310559164}
   - component: {fileID: 7018497867367519305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -529749621
-  m_SortingLayer: 2
+  m_SortingLayerID: -1127797399
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 97fd7da6fa8d1ef4cb4ee5a8b106c20f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,6 +130,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1413057201951469918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5b4c55505000b478f34952697e60f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 540eb281cd85d984e9ec570fed0319ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 21300000, guid: 97fd7da6fa8d1ef4cb4ee5a8b106c20f, type: 3}
+  size: 1
+  minSize: 0.05
+  maxSize: 0.15
+  speed: 2.5
+  maxLifetime: 30

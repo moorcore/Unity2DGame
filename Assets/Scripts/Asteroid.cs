@@ -4,9 +4,10 @@ public class Asteroid : MonoBehaviour
 {
     public Sprite[] Sprites;
     public float size = 1.0f;
-    public float minSize = 0.5f;
-    public float maxSize = 1.5f;
+    public float minSize = 0.05f;
+    public float maxSize = 0.15f;
     public float speed = 2.5f;
+    public float maxLifetime = 30.0f;
 
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
@@ -30,5 +31,33 @@ public class Asteroid : MonoBehaviour
     public void SetTrajetory(Vector2 direction)
     {
         _rigidbody.AddForce(direction * speed);
+
+        Destroy(gameObject, maxLifetime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Projectiles" && GetComponent<Renderer>().isVisible)
+        {
+            if ((size / 2.0f) > minSize)
+            {
+                FindObjectOfType<AudioManager>().Play("asteroidexplotion");
+                Split();
+                Split();
+            }
+
+            FindObjectOfType<AudioManager>().Play("asteroidexplotion");
+            Destroy(gameObject);
+        }
+    }
+
+    private void Split()
+    {
+        Vector2 position = transform.position;
+        position += Random.insideUnitCircle * 0.5f;
+
+        Asteroid splitted = Instantiate(this, position, transform.rotation);
+        splitted.size = size / 2.0f;
+        splitted.SetTrajetory(Random.insideUnitCircle.normalized * speed);
     }
 }
