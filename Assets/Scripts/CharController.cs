@@ -8,12 +8,11 @@ public class CharController : MonoBehaviour
     public Transform LaunchOffset;
     public Transform Spaceship;
 
-    private float hitpoints;
-    private float maxHitpoints = 5.0f;
-    // public HPBar HPBar;
+    public float hitpoints;
+    public float maxHitpoints = 1.0f;
 
     public bool CanDash = true;
-    private bool isDashing;
+    // private bool isDashing;
     private float dashingPower = 24.0f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1.0f;
@@ -27,16 +26,10 @@ public class CharController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         hitpoints = maxHitpoints;
-        // HPBar.SetHealth(Hitpoints, MaxHitpoints);
     }
 
     private void Update()
     {
-        /*        if (isDashing)
-                {
-                    return;
-                }*/
-
         var horizontalMovement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(horizontalMovement, 0, 0) * Time.deltaTime * movementSpeed;
 
@@ -98,7 +91,6 @@ public class CharController : MonoBehaviour
     private IEnumerator Dash()
     {
         CanDash = false;
-        isDashing = true;
         var originalMovespeed = movementSpeed;
 
         movementSpeed += dashingPower; 
@@ -107,7 +99,6 @@ public class CharController : MonoBehaviour
 
         trailRenderer.emitting = false;
         movementSpeed = originalMovespeed;
-        isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         CanDash = true;
     }

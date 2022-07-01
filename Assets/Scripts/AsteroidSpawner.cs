@@ -12,7 +12,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     public float trajectoryVariety = 18.0f;
 
-    public int spawnAmount = 1;
+    public int spawnAmount = 2;
 
     void Start()
     {
