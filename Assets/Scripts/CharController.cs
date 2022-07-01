@@ -62,9 +62,7 @@ public class CharController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<EnemyBehaviour>();
-
-        if (enemy)
+        if (collision.gameObject.tag == "Threat")
         {
             PlayerTakeHit(1);
         }
