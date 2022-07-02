@@ -46,6 +46,7 @@ public class Asteroid : MonoBehaviour
                 Split();
             }
 
+            FindObjectOfType<GameManager>().AsteroidDestroyed(this);
             FindObjectOfType<AudioManager>().Play("asteroidexplotion");
             Destroy(gameObject);
         }

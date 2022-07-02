@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemyBehaviour enemyPrefab;
+    public Enemy enemyPrefab;
 
     public float spawnRate = 5.0f;
 

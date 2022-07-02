@@ -16,7 +16,7 @@ public class ProjBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<EnemyBehaviour>();
+        var enemy = collision.collider.GetComponent<Enemy>();
         FindObjectOfType<AudioManager>().Play("projHitSound");
 
         if (enemy)

@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CharController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public float movementSpeed = 6.0f;
     public ProjBehaviour ProjPrefab;
     public Transform LaunchOffset;
     public Transform Spaceship;
 
+    public float movementSpeed = 6.0f;
     public float hitpoints;
     public float maxHitpoints = 1.0f;
+    public float invulnerabilityTime = 2.0f;
 
     public bool CanDash = true;
-    // private bool isDashing;
     private float dashingPower = 24.0f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1.0f;
@@ -60,12 +60,23 @@ public class CharController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
+        Invoke(nameof(TurnOnCollisions), invulnerabilityTime);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Threat")
         {
             PlayerTakeHit(1);
         }
+    }
+
+    private void TurnOnCollisions()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     private void PlayerTakeHit(float damage)
@@ -81,6 +92,8 @@ public class CharController : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("shipdestroyed");
             gameObject.SetActive(false);
+            FindObjectOfType<GameManager>().PlayerDestroyed();
+            CanDash = true;
         }
     }
 

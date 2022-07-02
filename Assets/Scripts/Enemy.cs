@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float hitpoints;
     public float maxHitpoints = 5;
@@ -34,6 +34,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (hitpoints <= 0)
         {
+            FindObjectOfType<GameManager>().EnemyDestroyed(this);
             FindObjectOfType<AudioManager>().Play("shipdestroyed");
             Destroy(gameObject);
         }
