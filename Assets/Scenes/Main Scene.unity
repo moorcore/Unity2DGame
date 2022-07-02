@@ -171,7 +171,6 @@ MonoBehaviour:
   lives: 3
   score: 0
   respawnTime: 3
-  invulnerabilityTime: 2
 --- !u!1 &208059453
 GameObject:
   m_ObjectHideFlags: 0
