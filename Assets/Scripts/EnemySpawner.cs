@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
 
     public float spawnDistance = 15.0f;
 
+    public float trajectoryVariety = 18.0f;
+
     public int spawnAmount = 1;
 
     void Start()
@@ -24,7 +26,8 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnDirection = Random.insideUnitCircle.normalized * spawnDistance;
             Vector3 spawnpoint = transform.position + spawnDirection;
 
-            Instantiate(enemyPrefab);
+            Instantiate(enemyPrefab, spawnpoint, transform.rotation);
+            FindObjectOfType<AudioManager>().Play("enemysound");
         }
     }
 }

@@ -465,6 +465,7 @@ MonoBehaviour:
     type: 3}
   spawnRate: 5
   spawnDistance: 15
+  trajectoryVariety: 18
   spawnAmount: 1
 --- !u!1 &1268101609
 GameObject:
@@ -944,6 +945,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pixelBeast
       objectReference: {fileID: 0}
+    - target: {fileID: 6048393831108836876, guid: 6d448688ee8f4c943958a6c68dcbbe4b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d448688ee8f4c943958a6c68dcbbe4b, type: 3}
 --- !u!1001 &3136150840621342716
@@ -957,6 +963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
@@ -980,8 +991,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b8d640d01d08f64da689a2fbd3ee804, type: 3}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[7].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[7].name
+      value: enemysound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756355, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}

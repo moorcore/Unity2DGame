@@ -56,7 +56,7 @@ public class CharController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            FindObjectOfType<AudioManager>().Play("charTaunt");
+            
         }
     }
 
@@ -72,8 +72,6 @@ public class CharController : MonoBehaviour
     {
         hitpoints -= damage;
 
-        // HPBar.SetHealth(Hitpoints, MaxHitpoints);
-
         if (hitpoints > 0)
         {
             FindObjectOfType<AudioManager>().Play("shipdamaged");
@@ -82,7 +80,7 @@ public class CharController : MonoBehaviour
         if (hitpoints <= 0)
         {
             FindObjectOfType<AudioManager>().Play("shipdestroyed");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
