@@ -59,6 +59,6 @@ public class Asteroid : MonoBehaviour
 
         Asteroid splitted = Instantiate(this, position, transform.rotation);
         splitted.size = size / 2.0f;
-        splitted.SetTrajetory(Random.insideUnitCircle.normalized * speed);
+        splitted.SetTrajetory(Random.insideUnitCircle.normalized * (speed * 3.0f));
     }
 }

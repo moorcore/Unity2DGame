@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,14 +35,16 @@ public class GameManager : MonoBehaviour
 
     public void AsteroidDestroyed(Asteroid asteroid)
     {
-        score += 50;
+        // score += 50;
+        Score.scoreValue += 50;
         explosion.transform.position = asteroid.transform.position;
         explosion.Play();
     }
 
     public void EnemyDestroyed(Enemy enemy)
     {
-        score += 200;
+        // score += 200;
+        Score.scoreValue += 200;
         enemyExplosion.transform.position = enemy.transform.position;
         enemyExplosion.Play();
     }
@@ -54,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        score = 0;
+        Score.scoreValue = 0;
         lives = 3;
         SceneManager.LoadScene("Main Menu");
     }
