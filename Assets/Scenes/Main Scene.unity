@@ -217,97 +217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &223054170
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 223054171}
-  - component: {fileID: 223054174}
-  - component: {fileID: 223054173}
-  - component: {fileID: 223054172}
-  m_Layer: 10
-  m_Name: Text (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &223054171
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223054170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 285541731}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -10}
-  m_SizeDelta: {x: 268.90253, y: 50.335938}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &223054172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223054170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d122acac326dea4d8f41ad6ccc4049d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &223054173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223054170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78039217}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 50
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Speed: 99999'
---- !u!222 &223054174
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223054170}
-  m_CullTransparentMesh: 0
 --- !u!1 &285541730
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +247,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 223054171}
   - {fileID: 630491050}
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -690,7 +598,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 285541731}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -956,7 +864,7 @@ PrefabInstance:
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
@@ -1042,15 +950,30 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[11].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 1b8d640d01d08f64da689a2fbd3ee804, type: 3}
+      objectReference: {fileID: 8300000, guid: 613428a207a66f5469cd13691a6b71d0, type: 3}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
       propertyPath: sounds.Array.data[11].loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
       propertyPath: sounds.Array.data[11].name
+      value: lasersound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b8d640d01d08f64da689a2fbd3ee804, type: 3}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[12].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[12].name
       value: enemysound
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
@@ -1081,6 +1004,11 @@ PrefabInstance:
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
       propertyPath: sounds.Array.data[11].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[12].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
@@ -1121,7 +1049,12 @@ PrefabInstance:
     - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
       propertyPath: sounds.Array.data[11].volume
-      value: 0.044
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136150841202756354, guid: 42fa5d5bb7205c94688441e3a16617ca,
+        type: 3}
+      propertyPath: sounds.Array.data[12].volume
+      value: 0.046
       objectReference: {fileID: 0}
     - target: {fileID: 3136150841202756355, guid: 42fa5d5bb7205c94688441e3a16617ca,
         type: 3}
@@ -6220,7 +6153,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6978,7 +6911,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.1
       mode: 0
       spread: 0
       speed:
@@ -10167,7 +10100,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
@@ -10300,7 +10233,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -10308,7 +10241,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0.4615383
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -10317,7 +10250,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -10355,7 +10288,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 1, b: 0.83468914, a: 0.34117648}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -15853,6 +15786,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.93725497
+      objectReference: {fileID: 0}
+    - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.9568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 678363465, guid: ec9e5a8bd1c1155448ff670e6a775736, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.3647059
+      objectReference: {fileID: 0}
     - target: {fileID: 4870065212754377478, guid: ec9e5a8bd1c1155448ff670e6a775736,
         type: 3}
       propertyPath: m_Name
@@ -15867,6 +15812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxHitpoints
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870065212754377483, guid: ec9e5a8bd1c1155448ff670e6a775736,
+        type: 3}
+      propertyPath: laserCooldown
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4870065212754377483, guid: ec9e5a8bd1c1155448ff670e6a775736,
         type: 3}

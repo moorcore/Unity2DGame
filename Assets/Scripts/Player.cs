@@ -4,18 +4,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public ProjBehaviour ProjPrefab;
+    public Laser LaserPrefab;
     public Transform LaunchOffset;
-    public Transform Spaceship;
 
     public float movementSpeed = 6.0f;
     public float hitpoints;
     public float maxHitpoints = 1.0f;
     public float invulnerabilityTime = 2.0f;
+    public float dashingPower = 24.0f;
+    public float dashingTime = 0.2f;
+    public float dashingCooldown = 1.0f;
+    public float laserCooldown = 1.5f;
 
-    public bool CanDash = true;
-    private float dashingPower = 24.0f;
-    private float dashingTime = 0.2f;
-    private float dashingCooldown = 1.0f;
+    public bool laserAvailable = true;
+    public bool canDash = true;
 
     [SerializeField]
     private TrailRenderer trailRenderer;
@@ -24,7 +26,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();  
+        _rigidbody = GetComponent<Rigidbody2D>();
         hitpoints = maxHitpoints;
     }
 
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
         var verticalMovement = Input.GetAxis("Vertical");
         transform.position += new Vector3(0, verticalMovement, 0) * Time.deltaTime * movementSpeed;
 
-        if (Input.GetButtonDown("Jump") && CanDash)
+        if (Input.GetButtonDown("Jump") && canDash)
         {
             StartCoroutine(Dash());
             FindObjectOfType<AudioManager>().Play("dash");
@@ -54,9 +56,10 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && laserAvailable)
         {
-            
+            StartCoroutine(ShootLaser());
+            FindObjectOfType<AudioManager>().Play("lasersound");
         }
     }
 
@@ -93,13 +96,13 @@ public class Player : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("shipdestroyed");
             gameObject.SetActive(false);
             FindObjectOfType<GameManager>().PlayerDestroyed();
-            CanDash = true;
+            canDash = true;
         }
     }
 
     private IEnumerator Dash()
     {
-        CanDash = false;
+        canDash = false;
         var originalMovespeed = movementSpeed;
 
         movementSpeed += dashingPower; 
@@ -109,6 +112,17 @@ public class Player : MonoBehaviour
         trailRenderer.emitting = false;
         movementSpeed = originalMovespeed;
         yield return new WaitForSeconds(dashingCooldown);
-        CanDash = true;
+        canDash = true;
+    }
+
+    private IEnumerator ShootLaser()
+    {
+        Instantiate(LaserPrefab, LaunchOffset.position, transform.rotation);
+
+        laserAvailable = false;
+
+        yield return new WaitForSeconds(laserCooldown);
+
+        laserAvailable = true;
     }
 }
