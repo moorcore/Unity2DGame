@@ -14,4 +14,13 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene("Main Scene");
+
+        FindObjectOfType<AudioManager>().Play("gameost");
+
+        Score.scoreValue = 0;
+    }
 }

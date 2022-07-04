@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Score.scoreValue = 0;
         lives = 3;
-        SceneManager.LoadScene("Main Menu");
+
+        SceneManager.LoadScene("Game Over");
     }
 }

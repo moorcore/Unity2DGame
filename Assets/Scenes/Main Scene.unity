@@ -168,7 +168,7 @@ MonoBehaviour:
   explosion: {fileID: 2142406093}
   enemyExplosion: {fileID: 1379473992}
   playerExplosion: {fileID: 2013879038}
-  lives: 3
+  lives: 1
   score: 0
   respawnTime: 3
 --- !u!1 &208059453
